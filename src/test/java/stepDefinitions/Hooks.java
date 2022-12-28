@@ -8,7 +8,7 @@ import static baseUrl.AutoExerciseBaseUrl.autoExerciseSetup;
 
 public class Hooks {
 
-    @Before
+    @Before(value = "")
     public void beforeApi(Scenario scenario) {
 
         autoExerciseSetup();
