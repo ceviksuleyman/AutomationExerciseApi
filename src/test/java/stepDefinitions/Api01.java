@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-
 import baseUrl.AutoExerciseBaseUrl;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,14 +7,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.junit.Assert;
-import org.openqa.selenium.json.Json;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;

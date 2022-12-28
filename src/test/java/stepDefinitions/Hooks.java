@@ -9,7 +9,7 @@ import static baseUrl.AutoExerciseBaseUrl.autoExerciseSetup;
 public class Hooks {
 
     @Before
-    public void beforeRoomApi(Scenario scenario) {
+    public void beforeApi(Scenario scenario) {
 
         autoExerciseSetup();
     }//
