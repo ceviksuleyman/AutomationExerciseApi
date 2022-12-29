@@ -1,5 +1,6 @@
 package utilities;
 
+import io.restassured.response.Response;
 import pojos.Product;
 
 import java.io.BufferedWriter;
@@ -9,6 +10,8 @@ public class WriteToText {
 
 
     public static void saveProductsData(String fileName, Product[] products) {
+
+
 
         try {
 

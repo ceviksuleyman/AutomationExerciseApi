@@ -1,46 +1,40 @@
 package stepDefinitions;
 
-import baseUrl.AutoExerciseBaseUrl;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import pojos.Product;
-import utilities.ObjectMapperUtils;
-import utilities.WriteToText;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import static baseUrl.AutoExerciseBaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Api01 extends AutoExerciseBaseUrl {
+public class Api01 {
 
     Response response;
     JsonPath json;
 
 
-    @Given("API URL: {string}")
+    @Given("A_API URL {string}")
     public void apiURL(String pathParams) {
 
         spec.pathParams("1", pathParams);
     }
 
-    @When("Request Method: GET")
+    @When("A_API Request Method GET")
     public void requestMethodGET() {
 
-        response = given().spec(spec).get("/{1}");
+        response = given().spec(spec).when().get("/{1}");
     }
 
-    @Then("Response Code: {int}")
+    @Then("A_API Response Code {int}")
     public void responseCode(int code) {
 
         json = response.jsonPath();
@@ -48,9 +42,8 @@ public class Api01 extends AutoExerciseBaseUrl {
         assertEquals(code, json.getInt("responseCode"));
     }
 
-    @And("Response JSON: All products list")
+    @And("A_API Response JSON All products list")
     public void responseJSONAllProductsList() throws IOException {
-        Product product;
         //json.prettyPrint();
 
         List<String> namesList = json.getList("products.name");
@@ -77,8 +70,7 @@ public class Api01 extends AutoExerciseBaseUrl {
         System.out.println(json.getList("products.category.category"));
         System.out.println(json.getString("products[0].category.usertype.usertype"));
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/java/pojos/Products.txt", false));
-
+        BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/resources/TestData/Products.txt", false));
         List<String> productList = json.getList("products");
         for (int i = 0; i < productList.size(); i++) {
 
@@ -86,6 +78,5 @@ public class Api01 extends AutoExerciseBaseUrl {
             System.out.println(json.getString("products[" + i + "]"));
         }
         writer.close();
-
     }
 }
