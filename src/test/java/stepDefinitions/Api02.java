@@ -32,6 +32,7 @@ public class Api02 {
         UserType userType = new UserType("Men");
         Category category = new Category(userType, "Gaming Laptop");
         Product postProduct = new Product(99, "New york", "RS. 1000", "MSI", category);
+        System.out.println(postProduct);
 
         response = given().spec(spec).contentType(ContentType.JSON).body(postProduct).when().post("/{1}");
         //response.prettyPeek();
