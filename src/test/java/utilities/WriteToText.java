@@ -11,8 +11,6 @@ public class WriteToText {
 
     public static void saveProductsData(String fileName, Product[] products) {
 
-
-
         try {
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false));
