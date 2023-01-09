@@ -18,9 +18,9 @@ public class Api14 {
     JsonPath json;
 
     @Given("Z_API URL {string} {string}")
-    public void z_apiURL(String pathParam, String query) {
+    public void z_apiURL(String pathParam, String queryParam) {
 
-        spec.pathParams("1", pathParam).queryParam("email", "automation01@gmail.com");
+        spec.pathParams("1", pathParam).queryParam("email", queryParam);
     }
 
     @When("Z_Request Method GET")
