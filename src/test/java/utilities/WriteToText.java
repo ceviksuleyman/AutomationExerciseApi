@@ -31,27 +31,4 @@ public class WriteToText {
 
         }
     }
-
-    public static void saveUserData(String fileName, Reqres[] reqres) {
-
-        try {
-
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false));
-
-            for (int i = 0; i < reqres.length; i++) {
-
-                writer.append(reqres[i].getData().getId() + "[" + i + "]" + ",\n");
-                writer.append(reqres[i].getData().getEmail() + "[" + i + "]" + ",\n");
-                writer.append(reqres[i].getData().getFirst_name() + "[" + i + "]" + ",\n");
-                writer.append(reqres[i].getData().getLast_name() + "[" + i + "]" + ",\n");
-                writer.append(reqres[i].getData().getAvatar() + "[" + i + "]" + ",\n");
-                writer.append("-----------------------------------------------" + ",\n");
-            }
-
-            writer.close();
-
-        } catch (Exception e) {
-
-        }
-    }
 }
