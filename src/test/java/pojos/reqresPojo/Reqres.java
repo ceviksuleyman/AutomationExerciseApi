@@ -1,4 +1,4 @@
-package pojos;
+package pojos.reqresPojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;

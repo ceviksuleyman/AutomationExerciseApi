@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojos.Reqres;
+import pojos.reqresPojo.Reqres;
 import utilities.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;

@@ -1,8 +1,7 @@
 package utilities;
 
-import io.restassured.response.Response;
 import pojos.Product;
-import pojos.Reqres;
+import pojos.reqresPojo.Reqres;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
