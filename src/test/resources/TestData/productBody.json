@@ -1,0 +1,11 @@
+{
+  "name": "Green Top",
+  "price": "Rs. 750",
+  "brand": "Adidas",
+  "category": {
+    "usertype": {
+      "usertype": "Men"
+    },
+    "category": "Tops"
+  }
+}

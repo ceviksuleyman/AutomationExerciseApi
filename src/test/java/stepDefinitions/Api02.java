@@ -7,10 +7,16 @@ import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.junit.Assert;
 import pojos.Category;
 import pojos.Product;
 import pojos.UserType;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 import static baseUrl.AutoExerciseBaseUrl.spec;
 import static io.restassured.RestAssured.given;
@@ -27,11 +33,17 @@ public class Api02 {
     }
 
     @When("B_API Request Method POST")
-    public void b_apiRequestMethodPOST() {
+    public void b_apiRequestMethodPOST() throws FileNotFoundException {
 
-        UserType userType = new UserType("Men");
+        /*UserType userType = new UserType("Men");
         Category category = new Category(userType, "Gaming Laptop");
         Product postProduct = new Product(99, "New york", "RS. 1000", "MSI", category);
+        System.out.println(postProduct);*/
+
+        File file = new File("src/test/resources/TestData/productBody.json");
+        FileReader fileReader = new FileReader(file);
+        JSONTokener jsonTokener = new JSONTokener(fileReader);
+        JSONObject postProduct = new JSONObject(jsonTokener);
         System.out.println(postProduct);
 
         response = given().spec(spec).contentType(ContentType.JSON).body(postProduct).when().post("/{1}");
