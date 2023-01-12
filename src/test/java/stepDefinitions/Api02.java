@@ -46,7 +46,7 @@ public class Api02 {
         JSONObject postProduct = new JSONObject(jsonTokener);
         System.out.println(postProduct);
 
-        response = given().spec(spec).contentType(ContentType.JSON).body(postProduct).when().post("/{1}");
+        response = given().spec(spec).contentType(ContentType.JSON).body(postProduct.toString()).when().post("/{1}");
         //response.prettyPeek();
     }
 

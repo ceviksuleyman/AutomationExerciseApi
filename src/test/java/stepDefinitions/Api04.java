@@ -39,7 +39,7 @@ public class Api04 {
         JSONTokener jsonTokener = new JSONTokener(fileReader);
         JSONObject brandPut = new JSONObject(jsonTokener);
 
-        response = given().spec(spec).contentType(ContentType.JSON).body(brandPut).when().put("{1}");
+        response = given().spec(spec).contentType(ContentType.JSON).body(brandPut.toString()).when().put("{1}");
 
         json = response.jsonPath();
         json.prettyPrint();
