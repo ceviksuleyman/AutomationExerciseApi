@@ -3,7 +3,7 @@ package stepDefinitions;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
-import org.openqa.selenium.json.Json;
+
 
 import static io.restassured.RestAssured.given;
 
@@ -21,5 +21,7 @@ public class ReqresGet02 {
         JsonPath jsonPath = response.jsonPath();
         jsonPath.prettyPrint();
         System.out.println(jsonPath.getString("data[0]"));
+
+        
     }
 }
