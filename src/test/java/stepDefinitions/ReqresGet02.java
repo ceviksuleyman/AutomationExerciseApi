@@ -2,6 +2,9 @@ package stepDefinitions;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -20,8 +23,10 @@ public class ReqresGet02 {
 
         JsonPath jsonPath = response.jsonPath();
         jsonPath.prettyPrint();
-        System.out.println(jsonPath.getString("data[0]"));
+        System.out.println(jsonPath.getString("data[0].first_name"));
 
+        response.then().body("data[0].first_name", Matchers.equalTo("Michael"));
         
+        Assert.assertEquals("Michael", jsonPath.getString("data[0].first_name"));
     }
 }
