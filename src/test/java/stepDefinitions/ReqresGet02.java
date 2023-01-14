@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
+import org.apache.poi.ss.formula.functions.T;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,7 +27,11 @@ public class ReqresGet02 {
         System.out.println(jsonPath.getString("data[0].first_name"));
 
         response.then().body("data[0].first_name", Matchers.equalTo("Michael"));
-        
+
         Assert.assertEquals("Michael", jsonPath.getString("data[0].first_name"));
+
+        jsonPath.getList("data.findAll{it.email=='michael.lawson@reqres.in'}").stream().forEach(t->System.out.println(t));
+        jsonPath.getList("data.findAll{it.email=='michael.lawson@reqres.in'}.last_name").stream().forEach(t->System.out.println(t));
+        jsonPath.getList("data.findAll{it.first_name}.first_name").stream().forEach(t->System.out.println(t));
     }
 }
