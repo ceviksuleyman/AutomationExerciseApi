@@ -1,4 +1,4 @@
-Feature:
+Feature: GET user account detail by email
 
   @api14
   Scenario: GET user account detail by email

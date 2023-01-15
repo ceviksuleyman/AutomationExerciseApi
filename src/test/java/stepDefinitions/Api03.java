@@ -37,9 +37,9 @@ public class Api03 {
     @Then("C_Response Code {int}")
     public void c_responseCode(int code) {
 
-        Assert.assertEquals(200,response.getStatusCode());
+        Assert.assertEquals(200, response.getStatusCode());
 
-        Assert.assertEquals(code,json.getInt("responseCode"));
+        Assert.assertEquals(code, json.getInt("responseCode"));
     }
 
     @And("C_Response JSON All brands list")

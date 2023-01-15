@@ -1,7 +1,6 @@
 package utilities;
 
 import pojos.Product;
-import pojos.reqresPojo.Reqres;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

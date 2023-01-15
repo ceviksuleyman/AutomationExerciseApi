@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ObjectMapperUtils {
 
-    private static ObjectMapper mapper; //final
+    private static ObjectMapper mapper; // final
 
     static {
 

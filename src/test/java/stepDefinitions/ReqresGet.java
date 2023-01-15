@@ -5,7 +5,6 @@ import org.junit.Test;
 import pojos.reqresPojo.Reqres;
 import utilities.ObjectMapperUtils;
 
-import java.util.Arrays;
 
 import static io.restassured.RestAssured.given;
 
@@ -16,7 +15,9 @@ public class ReqresGet {
 
 
         Response response = given()
-                .pathParams("myPath", "users").queryParam("page", 2).queryParam("id", 5)
+                .pathParams("myPath", "users")
+                .queryParam("page", 2)
+                .queryParam("id", 5)
                 .when()
                 .get("https://reqres.in/api/{myPath}");
 

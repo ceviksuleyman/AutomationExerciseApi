@@ -21,7 +21,6 @@ public class Api01 {
     Response response;
     JsonPath json;
 
-
     @Given("A_API URL {string}")
     public void apiURL(String pathParams) {
 
@@ -44,25 +43,21 @@ public class Api01 {
 
     @And("A_API Response JSON All products list")
     public void responseJSONAllProductsList() throws IOException {
-        //json.prettyPrint();
+        // json.prettyPrint();
 
         List<String> namesList = json.getList("products.name");
         System.out.println(namesList);
 
-
         List<String> id = json.getList("products.findAll{it.id>=30}.brand");
         System.out.println(id);
-
 
         List<String> usertype = json.getList("products.category.usertype.findAll{it.usertype}.usertype");
         System.out.println(usertype.size());
         System.out.println(usertype);
 
-
         List<String> category = json.getList("products.category.findAll{it.category}.category");
         System.out.println(category.size());
         System.out.println(category);
-
 
         List<String> products = json.getList("products.name");
         System.out.println(products);

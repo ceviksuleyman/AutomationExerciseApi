@@ -10,7 +10,6 @@ import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.Assert;
-import pojos.Brand;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,7 +31,7 @@ public class Api04 {
     @When("D_Request Method PUT")
     public void d_requestMethodPUT() throws FileNotFoundException {
 
-        //Brand brandPut = new Brand(44, "MSI");
+        // Brand brandPut = new Brand(44, "MSI");
 
         File file = new File("src/test/resources/TestData/brandBody.json");
         FileReader fileReader = new FileReader(file);
