@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.json.JSONObject;
 import org.junit.Assert;
 
 import java.io.BufferedWriter;
@@ -55,5 +56,19 @@ public class Api03 {
             System.out.println(json.getString("brands[" + i + "]"));
         }
         writer.close();
+
+
+
+
+        JSONObject jsonObject = new JSONObject(response.asString());
+        System.out.println(jsonObject);
+        for (int i = 0; i < jsonObject.getJSONArray("brands").length(); i++) {
+
+
+            System.out.println(jsonObject.getJSONArray("brands").getJSONObject(i).get("brand").toString());
+        }
+
+        System.out.println(jsonObject.getJSONArray("brands").getJSONObject(0).toString());
+
     }
 }
