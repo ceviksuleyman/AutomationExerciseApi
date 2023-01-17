@@ -60,6 +60,7 @@ public class Api03 {
 
 
 
+        // JSONObject
         JSONObject jsonObject = new JSONObject(response.asString());
         System.out.println(jsonObject);
         for (int i = 0; i < jsonObject.getJSONArray("brands").length(); i++) {
