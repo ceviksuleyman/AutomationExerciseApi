@@ -4,6 +4,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import org.hamcrest.Matchers;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,6 +22,7 @@ public class ReqresGet02 {
                 .get("https://reqres.in/api/{myPath}");
 
 
+        // JsonPath
         JsonPath jsonPath = response.jsonPath();
         jsonPath.prettyPrint();
         System.out.println(jsonPath.getString("data[0].first_name"));
@@ -32,5 +34,17 @@ public class ReqresGet02 {
         jsonPath.getList("data.findAll{it.email=='michael.lawson@reqres.in'}").stream().forEach(t -> System.out.println(t));
         jsonPath.getList("data.findAll{it.email=='michael.lawson@reqres.in'}.last_name").stream().forEach(t -> System.out.println(t));
         jsonPath.getList("data.findAll{it.first_name}.first_name").stream().forEach(t -> System.out.println(t));
+
+
+
+        // JSONObject
+        JSONObject jsonObject = new JSONObject(response.asString());
+        System.out.println(jsonObject);
+        for (int i = 0; i < jsonObject.getJSONArray("data").length(); i++) {
+
+            System.out.println(jsonObject.getJSONArray("data").getJSONObject(i).get("email").toString());
+        }
+
+        System.out.println(jsonObject.getJSONArray("data").getJSONObject(0).toString());
     }
 }
