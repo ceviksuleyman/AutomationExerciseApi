@@ -36,7 +36,6 @@ public class ReqresGet02 {
         jsonPath.getList("data.findAll{it.first_name}.first_name").stream().forEach(t -> System.out.println(t));
 
 
-
         // JSONObject
         JSONObject jsonObject = new JSONObject(response.asString());
         System.out.println(jsonObject);
@@ -46,5 +45,24 @@ public class ReqresGet02 {
         }
 
         System.out.println(jsonObject.getJSONArray("data").getJSONObject(0).toString());
+
+
+        boolean status = false;
+
+        for (int i = 0; i < jsonObject.getJSONArray("data").length(); i++) {
+
+            String email = jsonObject.getJSONArray("data").getJSONObject(i).get("email").toString();
+
+            if (email.equals("michael.lawson@reqres.in")) {
+
+                status = true;
+                break;
+            }
+        }
+        Assert.assertEquals(status, true);
+
+
+
+
     }
 }
