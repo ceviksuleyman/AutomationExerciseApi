@@ -41,6 +41,7 @@ public class ReqresGet02 {
         System.out.println("jsonObject = " + jsonObject);
         for (int i = 0; i < jsonObject.getJSONArray("data").length(); i++) {
 
+            System.out.println(jsonObject.getJSONArray("data").getJSONObject(i));
             System.out.println(jsonObject.getJSONArray("data").getJSONObject(i).get("email").toString());
         }
 
