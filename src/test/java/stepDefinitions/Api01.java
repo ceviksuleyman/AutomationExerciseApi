@@ -6,6 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.json.JSONObject;
+import pojos.Product;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -43,7 +45,7 @@ public class Api01 {
 
     @And("A_API Response JSON All products list")
     public void responseJSONAllProductsList() throws IOException {
-        // json.prettyPrint();
+        //json.prettyPrint();
 
         List<String> namesList = json.getList("products.name");
         System.out.println(namesList);
@@ -70,8 +72,19 @@ public class Api01 {
         for (int i = 0; i < productList.size(); i++) {
 
             writer.append(json.getString("products[" + i + "]")).append(",\n");
-            System.out.println(json.getString("products[" + i + "]"));
+           // System.out.println(json.getString("products[" + i + "]"));
         }
         writer.close();
+
+
+
+        // JSONObject
+        JSONObject jsonObject = new JSONObject(response.asString());
+        for (int i = 0; i < jsonObject.getJSONArray("products").length() ; i++) {
+
+            System.out.println(jsonObject.getJSONArray("products").getJSONObject(i).get("brand"));
+            System.out.println(jsonObject.getJSONArray("products").getJSONObject(i));
+            System.out.println(jsonObject.getJSONArray("products").getJSONObject(i).getJSONObject("category").get("category"));
+        }
     }
 }
