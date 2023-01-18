@@ -38,7 +38,7 @@ public class ReqresGet02 {
 
         // JSONObject
         JSONObject jsonObject = new JSONObject(response.asString());
-        System.out.println("jsonObject = " + jsonObject);
+        //System.out.println("jsonObject = " + jsonObject);
         for (int i = 0; i < jsonObject.getJSONArray("data").length(); i++) {
 
             System.out.println(jsonObject.getJSONArray("data").getJSONObject(i));

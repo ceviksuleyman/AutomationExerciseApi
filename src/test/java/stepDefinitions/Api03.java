@@ -65,7 +65,7 @@ public class Api03 {
         System.out.println(jsonObject);
         for (int i = 0; i < jsonObject.getJSONArray("brands").length(); i++) {
 
-
+            System.out.println(jsonObject.getJSONArray("brands").getJSONObject(i));
             System.out.println(jsonObject.getJSONArray("brands").getJSONObject(i).get("brand").toString());
         }
 
