@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import pojos.Product;
+
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
