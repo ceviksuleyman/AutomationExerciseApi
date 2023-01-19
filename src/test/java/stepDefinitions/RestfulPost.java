@@ -35,22 +35,22 @@ public class RestfulPost {
 
 
         // JSONObject
-        JSONObject ActualJSONObject = new JSONObject(response.asString());
-        System.out.println("ActualJSONObject = " + ActualJSONObject);
+        JSONObject actualJSONObject = new JSONObject(response.asString());
+        System.out.println("ActualJSONObject = " + actualJSONObject);
 
 
         // Do Assertion
         // booking
-        assertEquals(expectedDataJSONObject.getString("firstname"), ActualJSONObject.getJSONObject("booking").getString("firstname"));
-        assertEquals(expectedDataJSONObject.getString("lastname"), ActualJSONObject.getJSONObject("booking").getString("lastname"));
-        assertEquals(expectedDataJSONObject.getInt("totalprice"), ActualJSONObject.getJSONObject("booking").getInt("totalprice"));
-        assertEquals(expectedDataJSONObject.getBoolean("depositpaid"), ActualJSONObject.getJSONObject("booking").getBoolean("depositpaid"));
+        assertEquals(expectedDataJSONObject.getString("firstname"), actualJSONObject.getJSONObject("booking").getString("firstname"));
+        assertEquals(expectedDataJSONObject.getString("lastname"), actualJSONObject.getJSONObject("booking").getString("lastname"));
+        assertEquals(expectedDataJSONObject.getInt("totalprice"), actualJSONObject.getJSONObject("booking").getInt("totalprice"));
+        assertEquals(expectedDataJSONObject.getBoolean("depositpaid"), actualJSONObject.getJSONObject("booking").getBoolean("depositpaid"));
 
         //bookingdates
         assertEquals(expectedDataJSONObject.getJSONObject("bookingdates").getString("checkin"),
-                ActualJSONObject.getJSONObject("booking").getJSONObject("bookingdates").getString("checkin"));
+                actualJSONObject.getJSONObject("booking").getJSONObject("bookingdates").getString("checkin"));
 
         assertEquals(expectedDataJSONObject.getJSONObject("bookingdates").getString("checkout"),
-                ActualJSONObject.getJSONObject("booking").getJSONObject("bookingdates").getString("checkout"));
+                actualJSONObject.getJSONObject("booking").getJSONObject("bookingdates").getString("checkout"));
     }
 }
