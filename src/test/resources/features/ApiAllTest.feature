@@ -1,5 +1,5 @@
 @all
-Feature: Get All Products List
+Feature: All API
 
   @api01
   Scenario: Get All Products List
