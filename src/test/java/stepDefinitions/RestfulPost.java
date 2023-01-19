@@ -1,10 +1,10 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,8 +15,9 @@ import static org.junit.Assert.assertEquals;
 
 public class RestfulPost {
 
-    @Test
-    public void post() throws FileNotFoundException {
+    @Given("Restful Api URL  {string}")
+    public void restfulApiURL(String pathParam) throws FileNotFoundException {
+
 
         File file = new File("src/test/resources/TestData/RestfulPostBody.json");
         FileReader fileReader = new FileReader(file);
@@ -24,16 +25,18 @@ public class RestfulPost {
         JSONObject expectedDataJSONObject = new JSONObject(jsonTokener);
         System.out.println("expectedDataJSONObject = " + expectedDataJSONObject);
 
-        Response response = given().pathParam("1", "booking")
+        Response response = given().pathParam("1", pathParam)
                 .contentType(ContentType.JSON)
                 .body(expectedDataJSONObject.toString())
                 .when().post("https://restful-booker.herokuapp.com/{1}");
 
         response.prettyPrint();
 
+
         // JSONObject
         JSONObject actualJSONObject = new JSONObject(response.asString());
         System.out.println("ActualJSONObject = " + actualJSONObject);
+
 
         // Do Assertion
         // booking
@@ -53,4 +56,5 @@ public class RestfulPost {
         assertEquals(expectedDataJSONObject.getJSONObject("bookingdates").getString("checkout"),
                 actualJSONObject.getJSONObject("booking").getJSONObject("bookingdates").getString("checkout"));
     }
+
 }
