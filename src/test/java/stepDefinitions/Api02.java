@@ -35,18 +35,18 @@ public class Api02 {
     @When("B_API Request Method POST")
     public void b_apiRequestMethodPOST() throws FileNotFoundException {
 
-        /*UserType userType = new UserType("Men");
-        Category category = new Category(userType, "Gaming Laptop");
-        Product postProduct = new Product(99, "New york", "RS. 1000", "MSI", category);
-        System.out.println(postProduct);*/
+        UserType userType = new UserType("Men");
+        Category category = new Category(userType, "Tops");
+        Product postProduct = new Product(99, "Green Top", "Rs. 750", "Adidas", category);
+        System.out.println(postProduct);
 
         File file = new File("src/test/resources/TestData/productBody.json");
         FileReader fileReader = new FileReader(file);
         JSONTokener jsonTokener = new JSONTokener(fileReader);
-        JSONObject postProduct = new JSONObject(jsonTokener);
-        System.out.println(postProduct);
+        JSONObject postProductFile = new JSONObject(jsonTokener);
+        System.out.println(postProductFile);
 
-        response = given().spec(spec).contentType(ContentType.JSON).body(postProduct.toString()).when().post("/{1}");
+        response = given().spec(spec).contentType(ContentType.JSON).body(postProductFile.toString()).when().post("/{1}");
         //response.prettyPeek();
     }
 
