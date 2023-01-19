@@ -24,6 +24,7 @@ public class RestfulPost {
         FileReader fileReader = new FileReader(file);
         JSONTokener jsonTokener = new JSONTokener(fileReader);
         JSONObject expectedDataJSONObject = new JSONObject(jsonTokener);
+        System.out.println("expectedDataJSONObject = " + expectedDataJSONObject);
 
 
         Response response = given().pathParam("1", "booking")
