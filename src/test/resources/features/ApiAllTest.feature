@@ -39,5 +39,5 @@ Feature: All API
 
   @restful
   Scenario: Restful Book Post
-    Given Restful Api URL  "booking"
+    Given Restful Api URL "booking"
 

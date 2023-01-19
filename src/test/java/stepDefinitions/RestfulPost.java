@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class RestfulPost {
 
-    @Given("Restful Api URL  {string}")
+    @Given("Restful Api URL {string}")
     public void restfulApiURL(String pathParam) throws FileNotFoundException {
 
 
