@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.Assert;
-import org.testng.annotations.Test;
+import org.junit.Test;
 import pojos.reqresPojo.Reqres;
 import utilities.ObjectMapperUtils;
 
@@ -44,7 +44,7 @@ public class ReqresGet {
 
     }
 
-    @Test(dependsOnMethods = "test01")
+    @Test
     public void test02() {
 
         Response response = given()
