@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 public class Exercise {
 
-    //@Test
+    @Test
     public void test01() {
 
         // https://reqres.in/api/users?page=2&id=5
@@ -27,7 +27,7 @@ public class Exercise {
                 .prettyPrint();
     }
 
-    //@Test
+    @Test
     public void parsingTestXMLResponse() {
 
         given()
