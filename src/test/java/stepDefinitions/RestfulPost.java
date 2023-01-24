@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import utilities.ConfigReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -28,7 +29,7 @@ public class RestfulPost {
         Response response = given().pathParam("1", pathParam)
                 .contentType(ContentType.JSON)
                 .body(expectedDataJSONObject.toString())
-                .when().post("https://restful-booker.herokuapp.com/{1}");
+                .when().post(ConfigReader.getProperty("restfulApiBaseUrl") + "{1}");
 
         response.prettyPrint();
 
@@ -56,5 +57,4 @@ public class RestfulPost {
         assertEquals(expectedDataJSONObject.getJSONObject("bookingdates").getString("checkout"),
                 actualJSONObject.getJSONObject("booking").getJSONObject("bookingdates").getString("checkout"));
     }
-
 }

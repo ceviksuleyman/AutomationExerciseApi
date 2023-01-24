@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 import pojos.reqresPojo.Reqres;
+import utilities.ConfigReader;
 import utilities.ObjectMapperUtils;
 
 
@@ -23,7 +24,7 @@ public class ReqresGet {
                 .queryParam("page", 2)
                 .queryParam("id", 5)
                 .when()
-                .get("https://reqres.in/api/{myPath}");
+                .get(ConfigReader.getProperty("reqresApiBaseUrl") + "{myPath}");
 
 
         response.prettyPrint();
@@ -50,7 +51,7 @@ public class ReqresGet {
         Response response = given()
                 .pathParams("myPath", "users").queryParam("page", 2)
                 .when()
-                .get("https://reqres.in/api/{myPath}");
+                .get(ConfigReader.getProperty("reqresApiBaseUrl") + "{myPath}");
 
 
         // JsonPath
