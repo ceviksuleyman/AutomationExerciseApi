@@ -33,7 +33,7 @@ public class Api04 {
 
         // Brand brandPut = new Brand(44, "MSI");
 
-        File file = new File("src/test/resources/TestData/brandBody.json");
+        File file = new File("src/test/resources/testData/brandBody.json");
         FileReader fileReader = new FileReader(file);
         JSONTokener jsonTokener = new JSONTokener(fileReader);
         JSONObject brandPut = new JSONObject(jsonTokener);

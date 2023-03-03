@@ -48,7 +48,7 @@ public class Api03 {
 
         json.prettyPrint();
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/resources/TestData/Brands.txt", false));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/resources/testData/Brands.txt", false));
         List<String> brandsList = json.getList("brands");
         for (int i = 0; i < brandsList.size(); i++) {
 

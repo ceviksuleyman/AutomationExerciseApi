@@ -67,7 +67,7 @@ public class Api01 {
         System.out.println(json.getList("products.category.category"));
         System.out.println(json.getString("products[0].category.usertype.usertype"));
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/resources/TestData/Products.txt", false));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/resources/testData/Products.txt", false));
         List<String> productList = json.getList("products");
         for (int i = 0; i < productList.size(); i++) {
 
